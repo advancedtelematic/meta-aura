@@ -5,36 +5,34 @@ This layer simply provides support for building pianobar, a console-based
 pandora client.
 
 
-
 Dependencies
 ------------
 
-Poky
-  URI: git://git.yoctoproject.org/poky.git
-  branch: denzil or later
-  revision: HEAD
-
+    Poky
+      URI: git://git.yoctoproject.org/poky.git
+      branch: denzil or later
+      revision: HEAD
 
 
 Building
 --------
 
-meta-aura doesn't provide any reference images, as its sole purpose is to
+`meta-aura` doesn't provide any reference images, as its sole purpose is to
 provide pianobar without any additional dependencies. The most straightforward
 way of trying out the layer is by adding it to a preexisting build.
 
 Begin by adding the layer to bblayers. For example:
-    BBLAYERS ?= " \
-        /home/strassek/poky/meta \
-        /home/strassek/poky/meta-yocto \
-        /home/strassek/poky/meta-aura \
 
-Assuming your image inherits from core-image you can add pianobar to local.conf like so:
-    CORE_IMAGE_EXTRA_INSTALL = "pianobar"
+    BBLAYERS += "${METADIR}/meta-aura"
+
+You can install pianobar with the IMAGE_INSTALL_append directive:
+
+    IMAGE_INSTALL_append = " pianobar "
 
 By default, bitbake will pull the latest version of pianobar available from 
-github. To increase the likelyhood that things just work, you may want to 
+github. To increase the likelihood that things just work, you may want to 
 specify an actual release version like so:
+
     PREFERRED_VERSION_pianobar = "20120907"
 
 At this point you should be ready to build the image.
@@ -47,6 +45,4 @@ License
 All metadata is MIT licensed unless otherwise stated. Source code included
 in tree for individual recipes is under the LICENSE stated in each recipe
 (.bb file) unless otherwise stated.
-
-This README document is Copyright (C) 2012 Intel Corporation.
 

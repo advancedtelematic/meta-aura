@@ -3,10 +3,10 @@ AUTHOR = "Lars-Dominik Braun <lars@6xq.net>"
 HOMEPAGE = "http://6xq.net/projects/pianobar/"
 LICENSE = "MIT"
 
-DEPENDS = "libao gnutls libgcrypt json-c faad2 libav curl"
-RDEPENDS_${PN} += " ${@base_contains("MACHINE_FEATURES", "alsa", "libao-alsa", "",d)}"
-RDEPENDS_${PN} += " ${@base_contains("MACHINE_FEATURES", "pulseaudio", "libao-pulse", "",d)}"
-RDEPENDS_${PN} += " ${@base_contains("MACHINE_FEATURES", "oss", "libao-oss", "",d)}"
+DEPENDS = "libao gnutls libgcrypt json-c faad2 libav curl "
+RDEPENDS_${PN} += " ${@bb.utils.contains("MACHINE_FEATURES", "alsa", "libao-alsa", "",d)}"
+RDEPENDS_${PN} += " ${@bb.utils.contains("MACHINE_FEATURES", "pulseaudio", "libao-pulse", "",d)}"
+RDEPENDS_${PN} += " ${@bb.utils.contains("MACHINE_FEATURES", "oss", "libao-oss", "",d)}"
 
 INC_PR = "r4"
 

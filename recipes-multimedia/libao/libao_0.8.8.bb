@@ -4,8 +4,8 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=94d55d512a9ba36caa9b7df079bae19f"
 HOMEPAGE = "http://www.xiph.org/ao/"
 SECTION = "libs/multimedia"
 DEPENDS = ""
-DEPENDS += " ${@base_contains("MACHINE_FEATURES", "alsa", "alsa-lib", "",d)}"
-DEPENDS += " ${@base_contains("MACHINE_FEATURES", "pulseaudio", "pulseaudio", "",d)}"
+DEPENDS += " ${@bb.utils.contains("MACHINE_FEATURES", "alsa", "alsa-lib", "",d)}"
+DEPENDS += " ${@bb.utils.contains("MACHINE_FEATURES", "pulseaudio", "pulseaudio", "",d)}"
 PR = "r3"
 
 SRC_URI = "http://downloads.xiph.org/releases/ao/libao-${PV}.tar.gz"
@@ -20,9 +20,9 @@ EXTRA_OECONF = "\
   --disable-nas \
 "
 
-EXTRA_OECONF += " ${@base_contains("MACHINE_FEATURES", "alsa", "--enable-alsa09", "--disable-alsa09",d)}"
-EXTRA_OECONF += " ${@base_contains("MACHINE_FEATURES", "pulseaudio", "--enable-pulse", "--disable-pulse",d)}"
-EXTRA_OECONF += " ${@base_contains("MACHINE_FEATURES", "oss", "--enable-oss", "--disable-oss",d)}"
+EXTRA_OECONF += " ${@bb.utils.contains("MACHINE_FEATURES", "alsa", "--enable-alsa09", "--disable-alsa09",d)}"
+EXTRA_OECONF += " ${@bb.utils.contains("MACHINE_FEATURES", "pulseaudio", "--enable-pulse", "--disable-pulse",d)}"
+EXTRA_OECONF += " ${@bb.utils.contains("MACHINE_FEATURES", "oss", "--enable-oss", "--disable-oss",d)}"
 
 
 PACKAGES =+ "${PN}-alsa ${PN}-alsa-dev ${PN}-pulse ${PN}-pulse-dev ${PN}-oss ${PN}-oss-dev"

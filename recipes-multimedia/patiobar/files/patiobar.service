@@ -8,5 +8,10 @@ Type=oneshot
 EnvironmentFile=/etc/patiobar.env
 ExecStart=/usr/bin/start-patiobar.py
 ExecStart=/usr/bin/screen -dmS pianobar pianobar
+ExecStop=/usr/bin/screen -ls | grep pianobar | cut -d. -f1 | awk '{print $1}' | xargs -r kill
+ExecStop=/usr/bin/screen -ls | grep patiobar | cut -d. -f1 | awk '{print $1}' | xargs -r kill
 RemainAfterExit=true
 StandardOutput=journal
+
+[Install]
+WantedBy=multi-user.target

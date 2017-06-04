@@ -142,9 +142,9 @@ def generate_config():
 def main():
   print "Waiting for network to come online..."
   print "Killing any existing pianobar screens..."
-  subprocess.call("screen -ls | grep pianobar | cut -d. -f1 | awk '{print $1}' | xargs kill > /dev/null",shell=True)
+  subprocess.call("screen -ls | grep pianobar | cut -d. -f1 | awk '{print $1}' | xargs -r kill > /dev/null",shell=True)
   print "Killing any existing patiobar screens..."
-  subprocess.call("screen -ls | grep patiobar | cut -d. -f1 | awk '{print $1}' | xargs kill > /dev/null",shell=True)
+  subprocess.call("screen -ls | grep patiobar | cut -d. -f1 | awk '{print $1}' | xargs -r kill > /dev/null",shell=True)
   wait_for_network()
   print "Generating pianobar config file..."
   generate_config()

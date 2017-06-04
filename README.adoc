@@ -1,0 +1,26 @@
+= meta-jukebox
+
+This layer provides a convenient way to turn your device into a jukebox playing https://www.pandora.com/[Pandora]. If all you want is a command-line client, there is a standalone recipe for building https://6xq.net/pianobar/[pianobar], a console-based pandora client. For more user-friendly experience, you can also serve up https://github.com/kylejohnson/Patiobar[Patiobar], a node.js-based web front end for pianobar.
+
+`meta-jukebox` was forked from https://github.com/strassek/meta-aura[meta-aura] to provide a starter project for https://atsgarage.com/en/index.html[ATS Garage] users who aren't that familiar with Yocto yet.
+
+== Dependencies
+
+    Poky
+      URI: git://git.yoctoproject.org/poky.git
+      branch: denzil or later
+      revision: HEAD
+
+    meta-nodejs (Patiobar only)
+      URI: https://github.com/imyller/meta-nodejs.git
+      branch: krogoth or later
+
+== Building
+
+`meta-jukebox` doesn't include any reference images, and there are only three recipes. To build, just add the layer to your project and bitbake away. If you're going to use patiobar, make sure you add meta-nodejs as well.
+
+If you want a more detailed guide for making a jukebox out of a Raspberry Pi, why not try out the https://docs.atsgarage.com/quickstarts/raspberry-pi.html[ATS Garage Raspberry Pi quickstart]?
+
+== License
+
+All metadata is MIT licensed unless otherwise stated. Source code included in tree for individual recipes is under the LICENSE stated in each recipe (.bb file) unless otherwise stated.

@@ -1,0 +1,12 @@
+[Unit]
+Description=Patiobar radio player
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+EnvironmentFile=/etc/patiobar.env
+ExecStart=/usr/bin/start-patiobar.py
+ExecStart=/usr/bin/screen -dmS pianobar pianobar
+RemainAfterExit=true
+StandardOutput=journal

@@ -3,7 +3,7 @@ SUMMARY = "A web frontend for pianobar, which is a CLI frontend for Pandora."
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=220c032936694298a846ea64b78d2cb7"
 
-SRC_URI = "git://github.com/tkfu/Patiobar.git;protocol=https \
+SRC_URI = "git://github.com/kylejohnson/Patiobar.git;protocol=https \
            file://patiobar.service \
            file://start-patiobar.py \
            "

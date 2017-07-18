@@ -11,13 +11,13 @@ This layer provides a convenient way to turn your device into a jukebox playing 
       branch: denzil or later
       revision: HEAD
 
-    meta-nodejs (Patiobar only)
+    meta-nodejs
       URI: https://github.com/imyller/meta-nodejs.git
       branch: krogoth or later
 
 == Building
 
-`meta-jukebox` doesn't include any reference images, and there are only three recipes. To build, just add the layer to your project and bitbake away. If you're going to use patiobar, make sure you add meta-nodejs as well.
+`meta-jukebox` doesn't include any reference images, and there are only three recipes. To build, just add the layer (and its dependencies https://github.com/imyller/meta-nodejs[meta-nodejs] and poky) to your project and bitbake away.
 
 If you want a more detailed guide for making a jukebox out of a Raspberry Pi, why not try out the https://docs.atsgarage.com/quickstarts/raspberry-pi.html[ATS Garage Raspberry Pi quickstart]?
 

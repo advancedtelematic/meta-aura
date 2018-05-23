@@ -3,6 +3,8 @@ AUTHOR = "Lars-Dominik Braun <lars@6xq.net>"
 HOMEPAGE = "http://6xq.net/projects/pianobar/"
 LICENSE = "MIT"
 
+inherit pkgconfig
+
 DEPENDS = "libao gnutls libgcrypt json-c faad2 libav curl "
 RDEPENDS_${PN} += " ${@bb.utils.contains("MACHINE_FEATURES", "alsa", "libao-alsa", "",d)}"
 RDEPENDS_${PN} += " ${@bb.utils.contains("MACHINE_FEATURES", "pulseaudio", "libao-pulse", "",d)}"
